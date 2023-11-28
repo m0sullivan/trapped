@@ -1,59 +1,37 @@
 import java.sql.*;
+import java.util.Scanner;
 
-public class Enemy {
-    String type;
-    int timer;
-    
-    Enemy(String typeInput, int timerInput) {
-        type = typeInput;
-        timer = timerInput;
-    }
-}
-
-public class Room {
-    int id;
-    String name;
-    double chanceOfCreating;
-
-    Room(double chanceOfCreating, String name, int id) {
-        chanceOfCreating = chanceOfCreating; 
-        name = name;
-        id = id;
-    }
-}
-
-public class sqlConn {
-
-    public String assemble() {
-        String text = "";
+public class Adventure {
+    ResultSet clues;
+    ResultSet combinationlock;
+    ResultSet enemies;
+    ResultSet furniture;
+    ResultSet rooms;
+    public static void main(String[] args) {
+        
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "")) {
 
             System.out.println("Database connected!");
-
             Statement stmt = conn.createStatement();
-
             stmt.executeQuery("USE TrappedGame;");
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM rooms;");
-
-            while(rs.next()) {
-                text = text+rs.getString("roomName")+"\n";
-            }
+            ResultSet clues = stmt.executeQuery("SELECT * FROM clues;");
+            ResultSet combinationlock = stmt.executeQuery("SELECT * FROM combinationlock;");
+            ResultSet enemies = stmt.executeQuery("SELECT * FROM enemies;");
+            ResultSet furniture = stmt.executeQuery("SELECT * FROM furniture;");
+            ResultSet rooms = stmt.executeQuery("SELECT * FROM rooms;");
 
         } catch (SQLException e) {
-            throw new IllegalStateException("Cannot connect the database!", e);
+            e.printStackTrace();
         }
-        return text;
 
-    }
-
-}
-
-public class Adventure {
-
-    public void main(String[] args) {
         System.out.println("You are trapped inside of a house, and you need to find a way out.");
-        System.out.println("");
+        Scanner userInput = new Scanner(System.in);
+        
+        while(true) {
+            String line = userInput.nextLine();
+            System.out.println("You are trapped inside of a house, and you need to find a way out.");
+        }
     }
 
 }
