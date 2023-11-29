@@ -11,6 +11,3 @@ public class rooms{
 		}
 }
 
-public mainRoom() {
-    
-}
