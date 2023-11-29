@@ -20,14 +20,14 @@ insert into rooms (roomName, chanceOfCreating) values ("Main Room", 100), ("Offi
 
 
 
-insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Ghost", "Normal", 5, "nd", 20);
-insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Giant Rat", "Fast", 4, "nd", 15);
-insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Zombies", "Very Slow", 8, "nd", 70);
-insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Vampire", "Fast", 3, "nd", 5);
-insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Mummy", "Very Slow", 10, "nd", 75);
-insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Giant Bat", "Very Fast", 2, "nd", 5);
-insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Skeleton", "Fast", 3, "nd", 5);
-insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Witch", "Slow", 6, "nd", 55);
+insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Ghost", "Normal", 5, "Office Rooms", 20);
+insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Giant Rat", "Fast", 4, "Kitchen", 15);
+insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Zombies", "Very Slow", 8, "Library", 70);
+insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Vampire", "Fast", 3, "Bedrooms", 5);
+insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Mummy", "Very Slow", 10, "Dining Room", 75);
+insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Giant Bat", "Very Fast", 2, "Backyard", 5);
+insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Skeleton", "Fast", 3, "Lobby", 5);
+insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Witch", "Slow", 6, "Labs", 55);
 
 insert into clues (item, content) values("Letter", "Dear Maya                                6th July, 2013
 													
