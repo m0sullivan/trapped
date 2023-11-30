@@ -9,6 +9,6 @@ public class Room {
 	chanceOfCreating = chanceOfCreating; 
 	name = name;
 	id = id;
-   }
+    }
 }
 
