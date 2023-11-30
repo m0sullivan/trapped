@@ -1,5 +1,6 @@
+package room;
 
-public class Room{
+public class Room {
     int id;
     String name;
     double chanceOfCreating;
