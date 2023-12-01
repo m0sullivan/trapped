@@ -13,7 +13,7 @@ public class Adventure {
 
             System.out.println("Database connected!");
             Statement stmt = conn.createStatement();
-            stmt.executeQuery("USE TrappedGame;");
+            stmt.executeUpdate("USE TrappedGame;");
 
             ResultSet clues = stmt.executeQuery("SELECT * FROM clues;");
             ResultSet combinationlock = stmt.executeQuery("SELECT * FROM combinationlock;");
