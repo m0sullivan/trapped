@@ -7,6 +7,7 @@ public class enemies {
   double chanceOfSpawning;
   String enemyQuestion;
   String enemyAnswer;
+  
   try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "")) {
 
             System.out.println("Database connected!");
