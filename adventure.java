@@ -32,6 +32,12 @@ public class Adventure {
             String line = userInput.nextLine();
             System.out.println("You are trapped inside of a house, and you need to find a way out.");
         }
+        try {
+			System.out.println("You are in: " + rooms.getString(1));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 }
