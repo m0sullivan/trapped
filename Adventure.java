@@ -20,6 +20,7 @@ public class Adventure {
             enemies = stmt.executeQuery("SELECT * FROM enemies;");
             furniture = stmt.executeQuery("SELECT * FROM furniture;");
             rooms = stmt.executeQuery("SELECT * FROM rooms;");
+            //System.out.println("You are in: " + rooms.getString(1));
 
         } catch (SQLException e) {
             e.printStackTrace();
