@@ -1,11 +1,10 @@
-package room;
 
-public class Room {
+public class room {
     int id;
     String name;
     double chanceOfCreating;
 
-    private Room(double chanceOfCreating, String name, int id) {
+    private room(double chanceOfCreating, String name, int id) {
 	chanceOfCreating = chanceOfCreating; 
 	name = name;
 	id = id;

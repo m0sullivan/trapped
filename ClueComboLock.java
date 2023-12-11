@@ -3,7 +3,7 @@ public class ClueComboLock {
   String CombinationLock;
 
   public ClueComboLock(String Ce, String CbL) {
-    this.Ce = Clue;
-    this.CbL = CombinationLock;
+    this.Clue = Ce;
+    this.CombinationLock = CbL;
   }
 }
