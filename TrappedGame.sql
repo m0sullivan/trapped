@@ -56,12 +56,17 @@ insert into clues (item, content) values("Foreign Language", "목표는 상대�
                                                                 종이가 바위를 감싸다: 종이가 승리한다
                                                                 동일 플레이: 다시 플레이하여 승리하세요.");
 insert into clues (item, content) values("Wrong Order", "het leuc si notapsuenos");
+insert into clues (item, conteudo) values("Grocery List ", "Milk
+							    Apples
+							    Crackers
+							    Juice");
                                                                 
 insert into combinationLock (item, password) values("Letter", "DTTTHL");
 insert into combinationLock (item, password) values("Broken Clock", "823");
 insert into combinationLock (item, password) values("Morse Code", "July");
 insert into combinationLock (item, password) values("Foreign Language", "가위 바위 보");
 insert into combinationLock (item, password) values("Wrong Order", "The clue is spontaneous");
+insert into combinationLock (item, password) values("Grocery List", "MACJ");
 
 insert into questions (conteudo) values("What is the largest planet in our solar system? (Answer is all caps and only letters)");
 insert into questions (conteudo) values("What is the capital city of France? (Answer is all caps and only letters)");
