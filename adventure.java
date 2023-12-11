@@ -2,12 +2,7 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class adventure {
-    ResultSet clues;
-    ResultSet combinationlock;
-    ResultSet enemies;
-    ResultSet furniture;
-    ResultSet rooms;
-    public static void main(String[] args) throws java.lang.Exception{
+    public static void main(String[] args){
 	    ResultSet clues;
 	    ResultSet combinationlock;
 	    ResultSet enemies;
