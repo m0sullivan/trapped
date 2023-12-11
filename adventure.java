@@ -7,13 +7,7 @@ public class adventure {
     ResultSet enemies;
     ResultSet furniture;
     ResultSet rooms;
-    public static void main(String[] args) {
-        
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306", "root", "Keefe2012")) {
-
-    
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws java.lang.Exception{
 	    ResultSet clues;
 	    ResultSet combinationlock;
 	    ResultSet enemies;
