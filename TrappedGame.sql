@@ -49,7 +49,7 @@ insert into clues (item, content) values("Letter", "Dear Maya                   
                                                     
                                                     Lana Soares
                                                     ");
-insert into clues (item, content) values("Brocken Clock", "3:28am");
+insert into clues (item, content) values("Broken Clock", "3:28am");
 insert into clues (item, content) values("Morse Code", ".--- ..- .-.. -.--");
 insert into clues (item, content) values("Foreign Language", "목표는 상대의 플레이를 이기는 플레이 모자를 선택하는 것입니다.
 																바위가 가위를 부수다: 바위가 승리합니다
