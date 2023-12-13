@@ -19,8 +19,6 @@ insert into rooms (roomName, chanceOfCreating) values ("Main Room", 100), ("Offi
 ("Library", 50), ("Mazes", 45), ("Lobby", 70), ("Playground", 50), ("Basement", 55), ("Labs", 35), ("Computer Room", 50), 
 ("Dining Room", 60), ("Kitchen", 60), ("Backyard", 70), ("Balcony", 85), ("Bathroom", 65), ("Attic", 70);
 
-insert into hidespots
-
 
 
 insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Ghost", "Normal", 5, "Office Rooms", 20);
