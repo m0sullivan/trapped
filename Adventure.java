@@ -46,6 +46,8 @@ public class Adventure {
 	    	
 	    	System.out.println("--------------------------------------------");
 	    	System.out.println("What would you like to do?");
+	    	trappedOptions options = new trappedOptions(conn);
+	    	trappedOptions options3 = new trappedOptions(conn);
 	    	input = reader.readLine();
 	        if (input.equals("QUIT")) {
 	        	System.out.println("--------------------------------------------");
@@ -59,7 +61,10 @@ public class Adventure {
 	        else if (input.equals("CONTROLS")) {
 	        	controls();
 	        }
-	        System.out.println("You are in " + rooms.getString(2));
+	        if (input.equals("DOOR")) {
+	        	rooms.next();
+	        	System.out.println("You are in " + rooms.getString(1));
+	        }
 	    }
 	    
 
