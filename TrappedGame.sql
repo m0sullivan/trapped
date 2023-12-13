@@ -21,6 +21,7 @@ insert into rooms (roomName, chanceOfCreating) values ("Main Room", 100), ("Offi
 
 
 
+
 insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Ghost", "Normal", 5, "Office Rooms", 20);
 insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Giant Rat", "Fast", 4, "Kitchen", 15);
 insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Zombies", "Very Slow", 8, "Library", 70);
@@ -30,7 +31,7 @@ insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) va
 insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Skeleton", "Fast", 3, "Lobby", 5);
 insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Witch", "Slow", 6, "Labs", 55);
 
-insert into clues (item, content) values("Letter", "Dear Maya                                6th July, 2013
+insert into clues (item, content) values("letter", "Dear Maya                                6th July, 2013
 													
 													Thank you very much for your last letter. It was great to hear 
                                                     from you after so many months. You seem to be having a 
@@ -48,20 +49,25 @@ insert into clues (item, content) values("Letter", "Dear Maya                   
                                                     
                                                     Lana Soares
                                                     ");
-insert into clues (item, content) values("Brcken Clock", "3:28am");
-insert into clues (item, content) values("Morse Code", ".--- ..- .-.. -.--");
-insert into clues (item, content) values("Foreign Language", "목표는 상대의 플레이를 이기는 플레이 모자를 선택하는 것입니다.
+insert into clues (item, content) values("broken clock", "3:28am");
+insert into clues (item, content) values("morse code", ".--- ..- .-.. -.--");
+insert into clues (item, content) values("foreign language", "목표는 상대의 플레이를 이기는 플레이 모자를 선택하는 것입니다.
 																바위가 가위를 부수다: 바위가 승리합니다
                                                                 가위로 종이를 자르다: 가위가 승리한다
                                                                 종이가 바위를 감싸다: 종이가 승리한다
                                                                 동일 플레이: 다시 플레이하여 승리하세요.");
-insert into clues (item, content) values("Wrong Order", "het leuc si notapsuenos");
+insert into clues (item, content) values("wrong order", "het leuc si notapsuenos");
+insert into clues (item, content) values("grocery list ", "Milk
+															Apples
+															Crackers
+															Juice");
                                                                 
 insert into combinationLock (item, password) values("Letter", "DTTTHL");
 insert into combinationLock (item, password) values("Broken Clock", "823");
 insert into combinationLock (item, password) values("Morse Code", "July");
 insert into combinationLock (item, password) values("Foreign Language", "가위 바위 보");
 insert into combinationLock (item, password) values("Wrong Order", "The clue is spontaneous");
+insert into combinationLock (item, password) values("Grocery List", "MACJ");
 
 insert into questions (conteudo) values("What is the largest planet in our solar system? (Answer is all caps and only letters)");
 insert into questions (conteudo) values("What is the capital city of France? (Answer is all caps and only letters)");
