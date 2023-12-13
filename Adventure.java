@@ -18,7 +18,7 @@ public class Adventure {
 	    	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/TrappedGame", "root", "Keefe2012");
             System.out.println("Database connected!");
     	    
-            //clues = stmt.executeQuery("SELECT * FROM clues;");
+            
             //combinationlock = stmt.executeQuery("SELECT * FROM combinationlock;");
             //enemies = stmt.executeQuery("SELECT * FROM enemies;");
             //furniture = stmt.executeQuery("SELECT * FROM furniture;");
@@ -43,9 +43,9 @@ public class Adventure {
 	    System.out.println("You are currently in " + rooms.getString(1));       
 
 	    while(gameRunning) {
+	    	
 	    	System.out.println("--------------------------------------------");
 	    	System.out.println("What would you like to do?");
-	    	options();
 	    	input = reader.readLine();
 	        if (input.equals("QUIT")) {
 	        	System.out.println("--------------------------------------------");
@@ -59,7 +59,7 @@ public class Adventure {
 	        else if (input.equals("CONTROLS")) {
 	        	controls();
 	        }
-	        
+	        System.out.println("You are in " + rooms.getString(2));
 	    }
 	    
 
@@ -67,17 +67,23 @@ public class Adventure {
     public static void controls() {
     	System.out.println("--------------------------------------------");
 	    System.out.println("CONTROLS:");
+	    System.out.println("Type OPTIONS to display available options");
 	    System.out.println("Type CONTROLS anytime to show controls");
 	    System.out.println("Type QUIT to Quit anytime");
 	    System.out.println("Type HIDE to Hide when enemy appears");
 	    System.out.println("DOOR to open and go through a door");
     }
-    public static void options() {
-    	System.out.println("1. ");
-    	System.out.println("2. ");
+    public static void options(String first, String second, String third, String fourth) {
+    	
+    	System.out.println("1. Go to next room ");
+    	System.out.println("2. Look at" );
     	System.out.println("3. ");
     	System.out.println("4. ");
     }
-    
+    public static void roomInfo() {
+    	
+    		
+    	
+    }
         
 }
