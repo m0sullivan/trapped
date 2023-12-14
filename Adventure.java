@@ -46,8 +46,9 @@ public class Adventure {
 	    	
 	    	System.out.println("--------------------------------------------");
 	    	System.out.println("What would you like to do?");
-	    	trappedOptions options = new trappedOptions(conn);
-	    	trappedOptions options3 = new trappedOptions(conn);
+	    	trappedOptions options = new trappedOptions();
+	    	options.mainOptions(conn);
+	    	
 	    	input = reader.readLine();
 	        if (input.equals("QUIT")) {
 	        	System.out.println("--------------------------------------------");
