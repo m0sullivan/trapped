@@ -37,18 +37,12 @@ public class Adventure {
 	    System.out.println("You are trapped inside of a house, and you need to find a way out.");
 	    
         Statement stmt = conn.createStatement();
-        
 	    trappedOptions options = new trappedOptions(); 
 	    options.mainOptions(conn);
 	    System.out.println("--------------------------------------------");
     	System.out.println("What would you like to do?");
 	    while(gameRunning) {
 	    	
-	    	
-	    	
-	    	
-	    	input = reader.readLine();
-	    	options.answerThing(conn);
 	        if (input.equals("QUIT")) {
 	        	System.out.println("--------------------------------------------");
 	        	System.out.println("You Quit! Please type START to start again, or press ENTER to close game.");
@@ -61,10 +55,6 @@ public class Adventure {
 	        else if (input.equals("CONTROLS")) {
 	        	controls();
 	        }
-	        if (input.equals("DOOR")) {
-	        	rooms.next();
-	        	System.out.println("You are in " + rooms.getString(1));
-	        }
 	        
 	    }
 	    
@@ -73,11 +63,9 @@ public class Adventure {
     public static void controls() {
     	System.out.println("--------------------------------------------");
 	    System.out.println("CONTROLS:");
-	    System.out.println("Type OPTIONS to display available options");
 	    System.out.println("Type CONTROLS anytime to show controls");
 	    System.out.println("Type QUIT to Quit anytime");
-	    System.out.println("Type HIDE to Hide when enemy appears");
-	    System.out.println("DOOR to open and go through a door");
+	    System.out.println("All input should be UPPERCASE");
     }
         
 }

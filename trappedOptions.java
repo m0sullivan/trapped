@@ -12,16 +12,22 @@ public class trappedOptions extends Adventure{
 	Scanner myScan = new Scanner(System.in);
 	String userInput = "";
 	ResultSet clues;
-	public void answerThing(Connection C) throws SQLException {
-		String input;
-		input = myScan.nextLine();
-		trappedOptions options = new trappedOptions();
-		if (input.equals("y")) {
-    		options.officeOptions(conn);
-    	}
-    	else if (input.equals("n")) {
-    		options.mainOptions(conn);
-    	}
+	boolean gameRunning;
+	public void gameRunning() {
+		while(gameRunning) {
+	        if (userInput.equals("QUIT")) {
+	        	System.out.println("--------------------------------------------");
+	        	System.out.println("You Quit! Please type START to start again, or press ENTER to close game.");
+	        	userInput = myScan.nextLine();
+	        	if (userInput.equals("START")) {
+	        		
+	        	}
+	        	System.exit(0);
+	        }
+	        else if (userInput.equals("CONTROLS")) {
+	        	controls();
+	        }
+	    }
 	}
 	public void mainOptions(Connection C) throws SQLException {
 		conn = C;
@@ -38,10 +44,11 @@ public class trappedOptions extends Adventure{
     	System.out.println("--------------------------------------------");
     	System.out.println("What would you like to do?");
     	userInput = myScan.nextLine();
+    	gameRunning();
     	if (userInput.equals("1"))
 		{
         	System.out.println("--------------------------------------------");
-    		System.out.println("Door1 is unlocked. Do you want to go to the office? (y/n)");
+    		System.out.println("Door1 is unlocked. Do you want to go to the office? (Y/N)");
     		userInput = myScan.nextLine();
     		if (userInput.equals("y")) {
     			officeOptions(conn);
@@ -52,7 +59,7 @@ public class trappedOptions extends Adventure{
 		}
 		else if (userInput.equals("2"))
 		{
-			System.out.println("Door2 is unlocked. Do you want to go to the bedroom? (y/n)");
+			System.out.println("Door2 is unlocked. Do you want to go to the bedroom? (Y/N)");
 			userInput = myScan.nextLine();
     		if (userInput.equals("y")) {
     			bedroomOptions(conn);
@@ -92,7 +99,16 @@ public class trappedOptions extends Adventure{
 			while (!done) {
 				userInput = myScan.nextLine();
 	    		if (userInput.equals("DTTTHL")) {
-	    			System.out.println("The door is unlocked. Do you want to go to the ...?");
+	    			rooms.next();
+	    	    	System.out.println("--------------------------------------------");
+	    			System.out.println("The door in unlocked. Do you want to go to the " + rooms.getString(1) + "? (Y/N)");
+	    			userInput = myScan.nextLine();
+	        		if (userInput.equals("y")) {
+	        			bedroomOptions(conn);
+	        		}
+	        		else if (userInput.equals("n")) {
+	        			officeOptions(conn);
+	        		}
 	    			done = true;
 	    		}
 	    		else if (userInput.equals("QUIT")) {
@@ -117,7 +133,7 @@ public class trappedOptions extends Adventure{
 		else if (userInput.equals("4"))
 		{
 	    	System.out.println("--------------------------------------------");
-			System.out.println("Are you sure you would like to go back? (y/n)");
+			System.out.println("Are you sure you would like to go back? (Y/N)");
 	    	userInput = myScan.nextLine();
 			if (userInput.equals("y")) {
 				mainOptions(conn);
@@ -130,13 +146,17 @@ public class trappedOptions extends Adventure{
 	public void bedroomOptions(Connection C) throws SQLException {
 		conn = C;
 	    ResultSet rooms = null;
+	    ResultSet clues = null;
         Statement stmt = conn.createStatement();
+        clues = stmt.executeQuery("SELECT item, content FROM clues");
+	    clues.next();
+	    clues.next();
         boolean done = false; 
         
     	System.out.println("--------------------------------------------");
 		System.out.println("1. Try to open the door");
     	System.out.println("2. Lay in bed");
-    	System.out.println("3. Look inside the closet");
+    	System.out.println("3. Check the broken clock");
     	System.out.println("4. Go back to Main room");
     	System.out.println("--------------------------------------------");
     	System.out.println("What would you like to do?");
@@ -165,6 +185,8 @@ public class trappedOptions extends Adventure{
 		}
 		else if (userInput.equals("3"))
 		{
+			//3:28AM
+			System.out.println("The clock is stopped, and it reads " + clues.getString(1) + ".");
 			System.out.println("");
 		}
 		else if (userInput.equals("4"))
