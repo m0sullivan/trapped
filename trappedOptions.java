@@ -72,6 +72,7 @@ public class trappedOptions extends Adventure{
 		conn = C;
 	    ResultSet rooms = null;
         Statement stmt = conn.createStatement();
+        boolean done = false;
         rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
 	    rooms.next();
 	    rooms.next();
@@ -87,7 +88,21 @@ public class trappedOptions extends Adventure{
     	userInput = myScan.nextLine();
     	if (userInput.equals("1"))
 		{
-    		System.out.println("The door is locked");
+    		System.out.println("The door is locked. It asks for a password. What should I try?");
+			while (!done) {
+				userInput = myScan.nextLine();
+	    		if (userInput.equals("DTTTHL")) {
+	    			System.out.println("The door in unlocked. Do you want to go to the ...?");
+	    			done = true;
+	    		}
+	    		else if (userInput.equals("QUIT")) {
+	    			done = true;
+	    			officeOptions(C);
+	    		}
+	    		else {
+	    			System.out.println("The password is incorrect. Try again or type QUIT to leave");
+	    		}
+			}
 		}
 		else if (userInput.equals("2"))
 		{
