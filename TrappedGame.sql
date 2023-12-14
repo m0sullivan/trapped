@@ -2,9 +2,8 @@ drop database if exists TrappedGame;
 create database TrappedGame;
 use TrappedGame;
 
-create table rooms (id int not null auto_increment, roomName varChar(200), chanceOfCreating double, primary key (id));
-create table furniture (id int not null auto_increment, furnitureItem varChar(200), canSpawnInsideClues varChar(200), 
-canSpawnInsideEnemies varChar(200), primary key (id));
+create table rooms (id int not null auto_increment, roomName varChar(200), roomDescription varChar(2000), primary key (id));
+
 
 create table clues (id int not null auto_increment, item varchar(200), content varchar(2000), primary key(id));
 create table combinationLock (id int not null auto_increment, item varchar(200), password varchar(200), primary key(id));
@@ -15,9 +14,9 @@ create table answer (id int not null auto_increment, conteudo varchar(200), prim
 create table enemies (id int not null auto_increment, name varchar(200), enemyType varchar(200), timer double, 
 	whereCanSpawn varchar(200), chanceOfSpawning double, primary key (id));
 
-insert into rooms (roomName, chanceOfCreating) values ("Main Room", 100), ("Office Rooms", 75), ("Bedrooms", 90), 
-("Library", 50), ("Mazes", 45), ("Lobby", 70), ("Playground", 50), ("Basement", 55), ("Labs", 35), ("Computer Room", 50), 
-("Dining Room", 60), ("Kitchen", 60), ("Backyard", 70), ("Balcony", 85), ("Bathroom", 65), ("Attic", 70);
+insert into rooms (roomName, roomDescription) values ("Main Room", "There is a Main Door which is the exit. It's locked... There is also a Door1 into another room, and a Door2 which is to another room. There is also a chest."), 
+("Office Rooms", "There is a File Cabinet, could be something inside of it. There is also a Desk, there is something on top of it."), 
+("Bedrooms", "There looks to be a comfortable Bed. There is a Closet in here too. I can maybe find something or hide in here, in case something pops by");
 
 
 
