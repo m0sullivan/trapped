@@ -50,10 +50,10 @@ public class trappedOptions extends Adventure{
         	System.out.println("--------------------------------------------");
     		System.out.println("Door1 is unlocked. Do you want to go to the office? (Y/N)");
     		userInput = myScan.nextLine();
-    		if (userInput.equals("y")) {
+    		if (userInput.equals("Y")) {
     			officeOptions(conn);
     		}
-    		else if (userInput.equals("n")) {
+    		else if (userInput.equals("Y")) {
     			mainOptions(conn);
     		}
 		}
@@ -61,7 +61,7 @@ public class trappedOptions extends Adventure{
 		{
 			System.out.println("Door2 is unlocked. Do you want to go to the bedroom? (Y/N)");
 			userInput = myScan.nextLine();
-    		if (userInput.equals("y")) {
+    		if (userInput.equals("Y")) {
     			bedroomOptions(conn);
     		}
 		}
@@ -135,10 +135,10 @@ public class trappedOptions extends Adventure{
 	    	System.out.println("--------------------------------------------");
 			System.out.println("Are you sure you would like to go back? (Y/N)");
 	    	userInput = myScan.nextLine();
-			if (userInput.equals("y")) {
+			if (userInput.equals("Y")) {
 				mainOptions(conn);
 			}
-			else if (userInput.equals("n")) {
+			else if (userInput.equals("N")) {
 			officeOptions(conn);	
 			}
 		}
