@@ -42,15 +42,17 @@ public class Adventure {
 	    rooms.next();
 	    System.out.println("You are currently in " + rooms.getString(1));
 	    System.out.println(rooms.getString(2));
-
+	    trappedOptions options = new trappedOptions(); 
+	    options.mainOptions(conn);
+	    System.out.println("--------------------------------------------");
+    	System.out.println("What would you like to do?");
 	    while(gameRunning) {
 	    	
-	    	System.out.println("--------------------------------------------");
-	    	System.out.println("What would you like to do?");
-	    	trappedOptions options = new trappedOptions();
-	    	options.mainOptions(conn);
+	    	
+	    	
 	    	
 	    	input = reader.readLine();
+	    	options.answerThing(conn);
 	        if (input.equals("QUIT")) {
 	        	System.out.println("--------------------------------------------");
 	        	System.out.println("You Quit! Please type START to start again, or press ENTER to close game.");
@@ -67,6 +69,7 @@ public class Adventure {
 	        	rooms.next();
 	        	System.out.println("You are in " + rooms.getString(1));
 	        }
+	        
 	    }
 	    
 
