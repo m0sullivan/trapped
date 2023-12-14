@@ -27,6 +27,10 @@ public class trappedOptions extends Adventure{
 		conn = C;
 	    ResultSet rooms = null;
         Statement stmt = conn.createStatement();
+        rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
+	    rooms.next();
+	    System.out.println("You are currently in " + rooms.getString(1));
+	    System.out.println(rooms.getString(2));
         System.out.println("1. Go to door1");
     	System.out.println("2. Go to door2");
     	System.out.println("3. Try to open Main door");
@@ -36,13 +40,15 @@ public class trappedOptions extends Adventure{
     	userInput = myScan.nextLine();
     	if (userInput.equals("1"))
 		{
+        	System.out.println("--------------------------------------------");
     		System.out.println("Door1 is unlocked. Do you want to go to the office? (y/n)");
     		userInput = myScan.nextLine();
     		if (userInput.equals("y")) {
     			officeOptions(conn);
     		}
-    		
-    		
+    		else if (userInput.equals("n")) {
+    			mainOptions(conn);
+    		}
 		}
 		else if (userInput.equals("2"))
 		{
@@ -66,7 +72,12 @@ public class trappedOptions extends Adventure{
 		conn = C;
 	    ResultSet rooms = null;
         Statement stmt = conn.createStatement();
-        
+        rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
+	    rooms.next();
+	    rooms.next();
+    	System.out.println("--------------------------------------------");
+	    System.out.println("You are currently in " + rooms.getString(1));
+	    System.out.println(rooms.getString(2));
         System.out.println("1. Try to open the door");
     	System.out.println("2. Look inside the file cabinet");
     	System.out.println("3. Look for something on desk");
@@ -90,13 +101,22 @@ public class trappedOptions extends Adventure{
 		}
 		else if (userInput.equals("4"))
 		{
-			System.out.println("");
+	    	System.out.println("--------------------------------------------");
+			System.out.println("Are you sure you would like to go back? (y/n)");
+	    	userInput = myScan.nextLine();
+			if (userInput.equals("y")) {
+				mainOptions(conn);
+			}
+			else if (userInput.equals("n")) {
+			officeOptions(conn);	
+			}
 		}
 	}
 	public void bedroomOptions(Connection C) throws SQLException {
 		conn = C;
 	    ResultSet rooms = null;
         Statement stmt = conn.createStatement();
+    	System.out.println("--------------------------------------------");
 		System.out.println("1. Try to open the door");
     	System.out.println("2. Lay in bed");
     	System.out.println("3. Look inside the closet");

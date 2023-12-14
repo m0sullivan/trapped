@@ -38,10 +38,6 @@ public class Adventure {
 	    
         Statement stmt = conn.createStatement();
         
-        rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
-	    rooms.next();
-	    System.out.println("You are currently in " + rooms.getString(1));
-	    System.out.println(rooms.getString(2));
 	    trappedOptions options = new trappedOptions(); 
 	    options.mainOptions(conn);
 	    System.out.println("--------------------------------------------");
