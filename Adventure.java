@@ -40,7 +40,8 @@ public class Adventure {
         
         rooms = stmt.executeQuery("SELECT roomName FROM rooms;");
 	    rooms.next();
-	    System.out.println("You are currently in " + rooms.getString(1));       
+	    System.out.println("You are currently in " + rooms.getString(1));
+	    System.out.println(rooms.getString(1));
 
 	    while(gameRunning) {
 	    	

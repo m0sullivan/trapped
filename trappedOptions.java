@@ -20,6 +20,8 @@ public class trappedOptions extends Adventure{
     	System.out.println("3. Try to open Main door");
     	System.out.println("4. Look inside the closet");
     	userInput = myScan.nextLine();
+    	System.out.println("You are currently in main room.");
+    	System.out.println("There is ");
     	if (userInput.equals("1"))
 		{
     		System.out.println("Door1 is unlocked. Do you want to go to the office?");
