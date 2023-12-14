@@ -38,10 +38,10 @@ public class Adventure {
 	    
         Statement stmt = conn.createStatement();
         
-        rooms = stmt.executeQuery("SELECT roomName FROM rooms;");
+        rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
 	    rooms.next();
 	    System.out.println("You are currently in " + rooms.getString(1));
-	    System.out.println(rooms.getString(1));
+	    System.out.println(rooms.getString(2));
 
 	    while(gameRunning) {
 	    	
@@ -79,18 +79,6 @@ public class Adventure {
 	    System.out.println("Type QUIT to Quit anytime");
 	    System.out.println("Type HIDE to Hide when enemy appears");
 	    System.out.println("DOOR to open and go through a door");
-    }
-    public static void options(String first, String second, String third, String fourth) {
-    	
-    	System.out.println("1. Go to next room ");
-    	System.out.println("2. Look at" );
-    	System.out.println("3. ");
-    	System.out.println("4. ");
-    }
-    public static void roomInfo() {
-    	
-    		
-    	
     }
         
 }

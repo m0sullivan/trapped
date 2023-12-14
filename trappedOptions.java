@@ -20,11 +20,12 @@ public class trappedOptions extends Adventure{
     	System.out.println("3. Try to open Main door");
     	System.out.println("4. Look inside the closet");
     	userInput = myScan.nextLine();
-    	System.out.println("You are currently in main room.");
-    	System.out.println("There is ");
     	if (userInput.equals("1"))
 		{
     		System.out.println("Door1 is unlocked. Do you want to go to the office?");
+    		if (userInput.equals("YES")) {
+    			officeOptions(conn);
+    		}
 		}
 		else if (userInput.equals("2"))
 		{
@@ -44,6 +45,7 @@ public class trappedOptions extends Adventure{
 		conn = C;
 	    ResultSet rooms = null;
         Statement stmt = conn.createStatement();
+        
         System.out.println("1. Try to open the door");
     	System.out.println("2. Look inside the file cabinet");
     	System.out.println("3. Look for something on desk");
