@@ -23,9 +23,9 @@ public class trappedOptions extends Adventure{
 	    ResultSet rooms = null;
         Statement stmt = conn.createStatement();
         Random rnd = new Random();
-        System.out.println("1. Go to Door1");
-    	System.out.println("2. ");
-    	System.out.println("3. ");
+        System.out.println("1. Go to Door");
+    	System.out.println("2. Look at file cabinet");
+    	System.out.println("3. Look at desk");
     	System.out.println("4. ");
 	}
 	public void bedroomOptions(Connection C) throws SQLException {
@@ -33,7 +33,7 @@ public class trappedOptions extends Adventure{
 	    ResultSet rooms = null;
         Statement stmt = conn.createStatement();
         Random rnd = new Random();
-		System.out.println("1. Go to Door1");
+		System.out.println("1. Go to Door");
     	System.out.println("2. ");
     	System.out.println("3. ");
     	System.out.println("4. ");
@@ -43,7 +43,7 @@ public class trappedOptions extends Adventure{
 	    ResultSet rooms = null;
         Statement stmt = conn.createStatement();
         Random rnd = new Random();
-		System.out.println("1. Go to Door1");
+		System.out.println("1. Go to Door");
     	System.out.println("2. ");
     	System.out.println("3. ");
     	System.out.println("4. ");
