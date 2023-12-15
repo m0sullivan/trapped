@@ -82,27 +82,33 @@ public class trappedOptions extends Adventure {
 			System.out.println("This door is locked");
 			System.out.println("I can input a password... might find it later... should I input it right now? (Y/N)");
 			userInput = myScan.nextLine();
-			if (userInput.equals("Y")) {
-    	    	System.out.println("--------------------------------------------");
-				System.out.println("Input the password:");
-				userInput = myScan.nextLine();
-				if (userInput.equals("JULY")) {
+			while (!done) {
+				if (userInput.equals("Y")) {
 	    	    	System.out.println("--------------------------------------------");
-	    	    	rooms.next();
-	    	    	rooms.next();
-	    	    	rooms.next();
-	    	    	rooms.next();
-	    	    	rooms.next();
-	    			System.out.println("The door in unlocked. Do you want to go to the " + rooms.getString(1) + "? (Y/N)");
-	    			userInput = myScan.nextLine();
-	    			if (userInput.equals(Y));
-    		}
-    		else if (userInput.equals("N")) {
-    			mainOptions(C);
-    		}
-				done = true;
+					System.out.println("Input the password:");
+					userInput = myScan.nextLine();
+					if (userInput.equals("JULY")) {
+		    	    	System.out.println("--------------------------------------------");
+		    	    	rooms.next();
+		    	    	rooms.next();
+		    	    	rooms.next();
+		    	    	rooms.next();
+		    	    	rooms.next();
+		    			System.out.println("The door is unlocked. Do you want to go to the " + rooms.getString(1) + "? (Y/N)");
+		    			userInput = myScan.nextLine();
+		    			if (userInput.equals("Y")) {
+		    				kitchenOptions(C);
+		    				done = true;
+		    			}
+		    			else if (userInput.equals("N")) {
+		    				done = true;
+		    			}
+					}
+				}
+	    		else if (userInput.equals("N")) {
+	    			done = true;
+	    		}
 			}
-			
 		}
 	}
 	
@@ -136,7 +142,7 @@ public class trappedOptions extends Adventure {
 	    			System.out.println("The door in unlocked. Do you want to go to the " + rooms.getString(1) + "? (Y/N)");
 	    			userInput = myScan.nextLine();
 	        		if (userInput.equals("Y")) {
-	        			bedroomOptions(conn);
+	        			libraryOptions(conn);
 	        		}
 	        		else if (userInput.equals("N")) {
 	        			officeOptions(conn);
@@ -202,7 +208,6 @@ public class trappedOptions extends Adventure {
         rooms.next();
         rooms.next();
         rooms.next();
-        rooms.next();
         System.out.println("--------------------------------------------");
 	    System.out.println("You are currently in " + rooms.getString(1));
 	    System.out.println(rooms.getString(2));
@@ -251,6 +256,14 @@ public class trappedOptions extends Adventure {
 		conn = C;
 	    ResultSet rooms = null;
         Statement stmt = conn.createStatement();
+        rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
+        rooms.next();
+        rooms.next();
+        rooms.next();
+        rooms.next();
+    	System.out.println("--------------------------------------------");
+        System.out.println("You are in " + rooms.getString(1));
+        System.out.println(rooms.getString(2));
 		System.out.println("1. Go to Door");
     	System.out.println("2. ");
     	System.out.println("3. ");
@@ -278,7 +291,17 @@ public class trappedOptions extends Adventure {
 	public void kitchenOptions(Connection C) throws SQLException {
 		conn = C;
 	    ResultSet rooms = null;
-        Statement stmt = conn.createStatement();
+	    Statement stmt = conn.createStatement();
+	    rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
+	    rooms.next();
+	    rooms.next();
+	    rooms.next();
+	    rooms.next();
+	    rooms.next();
+	    rooms.next();  
+    	System.out.println("--------------------------------------------");
+        System.out.println("You are currently in " + rooms.getString(1));
+        System.out.println(rooms.getString(2));
 		System.out.println("1. Check the grocery list");
     	System.out.println("2. Go back to Main room");
     	System.out.println("--------------------------------------------");
