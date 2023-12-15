@@ -14,7 +14,7 @@ create table answer (id int not null auto_increment, conteudo varchar(200), prim
 create table enemies (id int not null auto_increment, name varchar(200), enemyType varchar(200), timer double, 
 	whereCanSpawn varchar(200), chanceOfSpawning double, primary key (id));
 
-insert into rooms (roomName, roomDescription) values ("Main Room", "There is a Main Door which is the exit. It's locked... There is also a Door1 into another room, and a Door2 which is to another room. There is also a chest."), 
+insert into rooms (roomName, roomDescription) values ("Main Room", "There is a Main Door which is the exit. It's locked... There is also a Door1 into another room, and a Door2 which is to another room. There is also a chest, and a small door."), 
 ("Office Rooms", "I see another door. There is a File Cabinet, could be something inside of it. There is also a Desk, there is something on top of it."), 
 ("Bedrooms", "There looks to be a comfortable Bed. There is a Closet in here too. I can maybe find something or hide in here, in case something pops by, There also seems to be a Broken Clock here. I wonder why it hasn't been fixed..."),
 ("Library", "There are bookselves here full of books, except for one... There is one empty bookshelf with only one book. There is also another Door to another room."),

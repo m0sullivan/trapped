@@ -14,12 +14,6 @@ public class trappedOptions extends Adventure {
 	ResultSet clues;
 	ResultSet rooms;
 	boolean gameRunning;
-	/*try {
-		Statement stmt = conn.createStatement();
-		ResultSet rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
-	} catch(Error e) {
-		e.printStackTrace();
-	}*/
 	
 	
 	public void gameRunning() {
@@ -49,6 +43,7 @@ public class trappedOptions extends Adventure {
     	System.out.println("2. Go to door2");
     	System.out.println("3. Try to open Main door");
     	System.out.println("4. Look inside the closet");
+    	System.out.println("5. Try to open small door");
     	System.out.println("--------------------------------------------");
     	System.out.println("What would you like to do?");
     	userInput = myScan.nextLine();
@@ -80,6 +75,9 @@ public class trappedOptions extends Adventure {
 		else if (userInput.equals("4"))
 		{
 			System.out.println("There is nothing inside the closet");
+		}
+		else if (userInput.equals("5")) {
+			System.out.println("This door is locked");
 		}
 	}
 	
@@ -137,11 +135,24 @@ public class trappedOptions extends Adventure {
 		else if (userInput.equals("2"))
 		{
 			System.out.println("There is nothing inside the file cabinet");
+			officeOptions(C);
 		}
 		else if (userInput.equals("3"))
 		{
-			
-			System.out.println("There is a letter on top of the table. Look at the letter?");
+	    	System.out.println("--------------------------------------------");
+			System.out.println("There is a letter on top of the table. Look at the letter? (Y/N)");
+			while(!done) {
+				userInput = myScan.nextLine();
+				if (userInput.equals("Y")) {
+					clues = stmt.executeQuery("SELECT item, content FROM clues");
+					clues.next();
+				    clues.next();
+				    clues.next();
+			    	System.out.println("--------------------------------------------");
+				    System.out.println("The letter reads: " + clues.getString(2));
+				    done = true;
+				}
+			}
 			
 		}
 		else if (userInput.equals("4"))
