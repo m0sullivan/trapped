@@ -53,11 +53,6 @@ insert into clues (item, content) values("letter", "Dear Maya                   
                                                     ");
 insert into clues (item, content) values("broken clock", "3:28am");
 insert into clues (item, content) values("morse code", ".--- ..- .-.. -.--");
-insert into clues (item, content) values("foreign language", "목표는 상대의 플레이를 이기는 플레이 모자를 선택하는 것입니다.
-																바위가 가위를 부수다: 바위가 승리합니다
-                                                                가위로 종이를 자르다: 가위가 승리한다
-                                                                종이가 바위를 감싸다: 종이가 승리한다
-                                                                동일 플레이: 다시 플레이하여 승리하세요.");
 insert into clues (item, content) values("wrong order", "het leuc si notapsuenos");
 insert into clues (item, content) values("grocery list ", "Milk
 															Apples

@@ -91,9 +91,10 @@ public class trappedOptions extends Adventure {
 	    rooms.next();
 	    rooms.next();
 	    String getRooms = rooms.getString(1);
+	    String getDescription = rooms.getString(2);
     	System.out.println("--------------------------------------------");
 	    System.out.println("You are currently in " + getRooms);
-	    System.out.println(rooms.getString(2));
+	    System.out.println(getDescription);
         System.out.println("1. Try to open the door");
     	System.out.println("2. Look inside the file cabinet");
     	System.out.println("3. Look for something on desk");
@@ -108,6 +109,8 @@ public class trappedOptions extends Adventure {
 			while (!done) {
 				userInput = myScan.nextLine();
 	    		if (userInput.equals("DTTTHL")) {
+	    			rooms.next();
+	    			rooms.next();
 	    			rooms.next();
 	    			rooms.next();
 	    	    	System.out.println("--------------------------------------------");
@@ -167,7 +170,6 @@ public class trappedOptions extends Adventure {
         rooms2.next();
         rooms2.next();
         rooms2.next();
-       
         System.out.println("--------------------------------------------");
 	    System.out.println("You are currently in " + rooms2.getString(1));
 	    System.out.println(rooms2.getString(2));
