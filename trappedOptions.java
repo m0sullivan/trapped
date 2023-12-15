@@ -48,6 +48,7 @@ public class trappedOptions extends Adventure {
     	System.out.println("What would you like to do?");
     	userInput = myScan.nextLine();
     	gameRunning();
+    	boolean done = false;
     	if (userInput.equals("1"))
 		{
         	System.out.println("--------------------------------------------");
@@ -77,7 +78,31 @@ public class trappedOptions extends Adventure {
 			System.out.println("There is nothing inside the closet");
 		}
 		else if (userInput.equals("5")) {
+			System.out.println("--------------------------------------------");
 			System.out.println("This door is locked");
+			System.out.println("I can input a password... might find it later... should I input it right now? (Y/N)");
+			userInput = myScan.nextLine();
+			if (userInput.equals("Y")) {
+    	    	System.out.println("--------------------------------------------");
+				System.out.println("Input the password:");
+				userInput = myScan.nextLine();
+				if (userInput.equals("JULY")) {
+	    	    	System.out.println("--------------------------------------------");
+	    	    	rooms.next();
+	    	    	rooms.next();
+	    	    	rooms.next();
+	    	    	rooms.next();
+	    	    	rooms.next();
+	    			System.out.println("The door in unlocked. Do you want to go to the " + rooms.getString(1) + "? (Y/N)");
+	    			userInput = myScan.nextLine();
+	    			if (userInput.equals(Y));
+    		}
+    		else if (userInput.equals("N")) {
+    			mainOptions(C);
+    		}
+				done = true;
+			}
+			
 		}
 	}
 	
@@ -88,11 +113,9 @@ public class trappedOptions extends Adventure {
         rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
 	    rooms.next();
 	    rooms.next();
-	    String getRooms = rooms.getString(1);
-	    String getDescription = rooms.getString(2);
     	System.out.println("--------------------------------------------");
-	    System.out.println("You are currently in " + getRooms);
-	    System.out.println(getDescription);
+	    System.out.println("You are currently in " + rooms.getString(1));
+	    System.out.println(rooms.getString(2));
         System.out.println("1. Try to open the door");
     	System.out.println("2. Look inside the file cabinet");
     	System.out.println("3. Look for something on desk");
@@ -107,12 +130,10 @@ public class trappedOptions extends Adventure {
 			while (!done) {
 				userInput = myScan.nextLine();
 	    		if (userInput.equals("DTTTHL")) {
-	    			rooms.next();
-	    			rooms.next();
-	    			rooms.next();
-	    			rooms.next();
 	    	    	System.out.println("--------------------------------------------");
-	    			System.out.println("The door in unlocked. Do you want to go to the " + getRooms + "? (Y/N)");
+	    	    	rooms.next();
+	    	    	rooms.next();
+	    			System.out.println("The door in unlocked. Do you want to go to the " + rooms.getString(1) + "? (Y/N)");
 	    			userInput = myScan.nextLine();
 	        		if (userInput.equals("Y")) {
 	        			bedroomOptions(conn);
@@ -146,10 +167,10 @@ public class trappedOptions extends Adventure {
 				if (userInput.equals("Y")) {
 					clues = stmt.executeQuery("SELECT item, content FROM clues");
 					clues.next();
-				    clues.next();
-				    clues.next();
 			    	System.out.println("--------------------------------------------");
-				    System.out.println("The letter reads: " + clues.getString(2));
+				    System.out.println("The letter reads: ");
+				    System.out.println(clues.getString(2));
+				    officeOptions(C);
 				    done = true;
 				}
 			}
@@ -170,20 +191,21 @@ public class trappedOptions extends Adventure {
 	}
 	public void bedroomOptions(Connection C) throws SQLException {
 		conn = C;
-		ResultSet rooms2 = null;
-	    ResultSet clues2 = null; 
+		ResultSet rooms = null;
+	    ResultSet clues = null; 
         Statement stmt = conn.createStatement();
         boolean done = false;
         clues = stmt.executeQuery("SELECT item, content FROM clues");
         clues.next();
         clues.next();
-        rooms2 = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
-        rooms2.next();
-        rooms2.next();
-        rooms2.next();
+        rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
+        rooms.next();
+        rooms.next();
+        rooms.next();
+        rooms.next();
         System.out.println("--------------------------------------------");
-	    System.out.println("You are currently in " + rooms2.getString(1));
-	    System.out.println(rooms2.getString(2));
+	    System.out.println("You are currently in " + rooms.getString(1));
+	    System.out.println(rooms.getString(2));
     	System.out.println("--------------------------------------------");
 		System.out.println("1. Try to open the door");
     	System.out.println("2. Lay in bed");

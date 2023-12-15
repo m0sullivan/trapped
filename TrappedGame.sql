@@ -33,24 +33,24 @@ insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) va
 insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Skeleton", "Fast", 3, "Lobby", 5);
 insert into enemies (name, enemyType, timer, whereCanSpawn, chanceOfSpawning) values ("Witch", "Slow", 6, "Labs", 55);
 
-insert into clues (item, content) values("letter", "Dear Maya                                6th July, 2013
-													
-													Thank you very much for your last letter. It was great to hear 
-                                                    from you after so many months. You seem to be having a 
-                                                    nice time in France.
-                                                    
-                                                    Thanks also for the photographs. I absolutely loved that snap
-                                                    of yours stading in front of the Eiffel Tower. France looks
-                                                    stunning. Someday, I would definitelt like to go there. 
-                                                    
-                                                    There's not much happening here. I am busy wth my work
-                                                    and kids. By the way, are you coming home anytime soon?
-                                                    If you are, let me know the dates and we can arrange to meep up. 
-                                                    
-                                                    Hope to see you soon!
-                                                    
-                                                    Lana Soares
-                                                    ");
+insert into clues (item, content) values("letter", 
+"Dear Maya                                6th July, 2013
+Thank you very much for your last letter. It was great to hear 
+from you after so many months. You seem to be having a 
+nice time in France.
+
+Thanks also for the photographs. I absolutely loved that snap
+of yours stading in front of the Eiffel Tower. France looks
+stunning. Someday, I would definitelt like to go there. 
+
+There's not much happening here. I am busy wth my work
+and kids. By the way, are you coming home anytime soon?
+If you are, let me know the dates and we can arrange to meep up. 
+
+Hope to see you soon!
+
+Lana Soares
+");
 insert into clues (item, content) values("broken clock", "3:28am");
 insert into clues (item, content) values("morse code", ".--- ..- .-.. -.--");
 insert into clues (item, content) values("wrong order", "het leuc si notapsuenos");
