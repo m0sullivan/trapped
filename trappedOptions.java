@@ -275,7 +275,70 @@ public class trappedOptions extends Adventure {
 				mainOptions(conn);
 			}
 			else if (userInput.equals("N")) {
-			officeOptions(conn);	
+				kitchenOptions(conn);	
+			}
+		}
+	}
+	public void bathroomOptions(Connection C) throws SQLException {
+		conn = C;
+		boolean done = false;
+	    ResultSet rooms = null;
+        Statement stmt = conn.createStatement();
+        String getRooms = rooms.getString(1);
+	    String getDescription = rooms.getString(2);
+		System.out.println("1. Try to open the door");
+    	System.out.println("2. Check the tiles");
+    	System.out.println("3. Go back to Main room");
+    	System.out.println("--------------------------------------------");
+    	System.out.println("What would you like to do?");
+    	userInput = myScan.nextLine();
+    	if (userInput.equals("1"))
+		{
+    		
+    		System.out.println("--------------------------------------------");
+    		System.out.println("The door is locked. It asks for a password. What should I try?");
+			while (!done) {
+				userInput = myScan.nextLine();
+	    		if (userInput.equals("spontaneous")) {
+	    			rooms.next();
+	    			rooms.next();
+	    			rooms.next();
+	    	    	System.out.println("--------------------------------------------");
+	    			System.out.println("The door in unlocked. Do you want to go to the " + getRooms + "? (Y/N)");
+	    			userInput = myScan.nextLine();
+	        		if (userInput.equals("Y")) {
+	        			bedroomOptions(conn);
+	        		}
+	        		else if (userInput.equals("N")) {
+	        			bathroomOptions(conn);
+	        		}
+	    			done = true;
+	    		}
+	    		else if (userInput.equals("QUIT")) {
+	    			done = true;
+	    			bathroomOptions(C);
+	    		}
+	    		else {
+	    			System.out.println("--------------------------------------------");
+	    			System.out.println("The password is incorrect. Try again or type QUIT to leave");
+	    		}
+			}
+		}
+		else if (userInput.equals("2"))
+		{
+	    	System.out.println("--------------------------------------------");
+			System.out.println("The tiles reads: "+ clues.getString(2));
+		}
+		else if (userInput.equals("4"))
+		{
+	    	System.out.println("--------------------------------------------");
+			System.out.println("Are you sure you would like to go back? (Y/N)");
+	    	userInput = myScan.nextLine();
+			if (userInput.equals("Y")) {
+				mainOptions(conn);
+			}
+			else if (userInput.equals("N")) {
+				bathroomOptions(conn);	
 			}
 		}
 	}
