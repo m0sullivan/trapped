@@ -253,4 +253,30 @@ public class trappedOptions extends Adventure {
 			System.out.println("");
 		}
 	}
+	public void kitchenOptions(Connection C) throws SQLException {
+		conn = C;
+	    ResultSet rooms = null;
+        Statement stmt = conn.createStatement();
+		System.out.println("1. Check the grocery list");
+    	System.out.println("2. Go back to Main room");
+    	System.out.println("--------------------------------------------");
+    	System.out.println("What would you like to do?");
+    	userInput = myScan.nextLine();
+    	if (userInput.equals("1"))
+		{
+    		clues.getString(1);
+		}
+		else if (userInput.equals("2"))
+		{
+			System.out.println("--------------------------------------------");
+			System.out.println("Are you sure you would like to go back? (Y/N)");
+	    	userInput = myScan.nextLine();
+			if (userInput.equals("Y")) {
+				mainOptions(conn);
+			}
+			else if (userInput.equals("N")) {
+			officeOptions(conn);	
+			}
+		}
+	}
 }
