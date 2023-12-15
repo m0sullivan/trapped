@@ -38,11 +38,10 @@ public class Adventure {
 	    
         Statement stmt = conn.createStatement();
 	    trappedOptions options = new trappedOptions(); 
-	    options.mainOptions(conn);
 	    System.out.println("--------------------------------------------");
     	System.out.println("What would you like to do?");
 	    while(gameRunning) {
-	    	
+	    	options.mainOptions(conn);
 	        if (input.equals("QUIT")) {
 	        	System.out.println("--------------------------------------------");
 	        	System.out.println("You Quit! Please type START to start again, or press ENTER to close game.");
