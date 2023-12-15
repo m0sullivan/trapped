@@ -15,14 +15,14 @@ create table enemies (id int not null auto_increment, name varchar(200), enemyTy
 	whereCanSpawn varchar(200), chanceOfSpawning double, primary key (id));
 
 insert into rooms (roomName, roomDescription) values ("Main Room", "There is a Main Door which is the exit. It's locked... 
-There is also a Door1 into another room, and a Door2 which is to another room. There is also a chest, and a small door."), 
+There is also a Door1 into another room, and a Door2 which is to another room. There is also a closet, and a small door."), 
 ("Office Rooms", "I see another door. There is a File Cabinet, could be something inside of it. There is also a Desk, there is something on top of it."), 
 ("Bedrooms", "There looks to be a comfortable Bed. There is a Closet in here too. 
 I can maybe find something or hide in here, in case something pops by, there also seems to be a Broken Clock here. I wonder why it hasn't been fixed..."),
 ("Library", "There are bookshelves here full of books, except for one... There is one empty bookshelf with only one book. 
 There is a big desk, looks like the librairian would sit there. There is also another Door."),
 ("Bathroom", "There is a shattered toilet here that hasn't been used in a long time. Behind me, the tiles on the bathroom wall have letters drawn on them.
- They seem to be in the wrong order of a sentence. The door behind me randomly locked itself?"),
+They seem to be in the wrong order of a sentence. The door behind me randomly locked itself?"),
 ("Kitchen", "It's just a Kitchen with regular cooking things. Theres a cabinet with one broken door. There seems to be a grocery list inside of it.");
 
 

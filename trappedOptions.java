@@ -7,36 +7,21 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class trappedOptions extends Adventure {
+	// Define all the global variables
 	Connection conn;
-	Random rnd = new Random();
 	Scanner myScan = new Scanner(System.in);
 	String userInput = "";
 	ResultSet clues;
 	ResultSet rooms;
-	boolean gameRunning;
-	
-	
-	public void gameRunning() {
-		while(gameRunning) {
-	        if (userInput.equals("QUIT")) {
-	        	System.out.println("--------------------------------------------");
-	        	System.out.println("You Quit! Please type START to start again, or press ENTER to close game.");
-	        	userInput = myScan.nextLine();
-	        	if (userInput.equals("START")) {
-	        		
-	        	}
-	        	System.exit(0);
-	        }
-	        else if (userInput.equals("CONTROLS")) {
-	        	controls();
-	        }
-	    }
-	}
+	// function to make a main room
 	public void mainOptions(Connection C) throws SQLException {
 		conn = C;
         Statement stmt = conn.createStatement();
+        //execute the query to get everything from room table
         rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
 	    rooms.next();
+	    //display the current room name and information, and then all the options
+    	System.out.println("--------------------------------------------");
 	    System.out.println("You are currently in " + rooms.getString(1));
 	    System.out.println(rooms.getString(2));
         System.out.println("1. Go to door1");
@@ -47,7 +32,7 @@ public class trappedOptions extends Adventure {
     	System.out.println("--------------------------------------------");
     	System.out.println("What would you like to do?");
     	userInput = myScan.nextLine();
-    	gameRunning();
+    	// boolean for the longer options such as inputing password or looking at a letter
     	boolean done = false;
     	if (userInput.equals("1"))
 		{
@@ -104,10 +89,9 @@ public class trappedOptions extends Adventure {
 						done = true;
 						mainOptions(C);
 					}
-					else {
-						System.out.println("The password is incorrect. Try again or type QUIT to exit");
+					else if (!userInput.equals("QUIT")){
+						System.out.println("The password is incorrect. Try again? (Y/N)");
 						System.out.println("--------------------------------------------");
-				    	userInput = myScan.nextLine();
 					}
 				}
 				else if (userInput.equals("N")) {
@@ -123,8 +107,8 @@ public class trappedOptions extends Adventure {
 			System.out.println("--------------------------------------------");
 			System.out.println("This door is locked");
 			System.out.println("I can input a password... might find it later... should I input it right now? (Y/N)");
-			userInput = myScan.nextLine();
 			while (!done) {
+				userInput = myScan.nextLine();
 				if (userInput.equals("Y")) {
 	    	    	System.out.println("--------------------------------------------");
 					System.out.println("Input the password:");
@@ -146,6 +130,10 @@ public class trappedOptions extends Adventure {
 		    				done = true;
 		    			}
 					}
+					else {
+						System.out.println("The password is incorrect. Try again? (Y/N)");
+						System.out.println("--------------------------------------------");
+					}
 				}
 	    		else if (userInput.equals("N")) {
 	    			done = true;
@@ -158,9 +146,11 @@ public class trappedOptions extends Adventure {
 		conn = C;
         Statement stmt = conn.createStatement();
         boolean done = false;
+        //execute the query to get everything from room table
         rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
 	    rooms.next();
 	    rooms.next();
+	    //display the current room name and information, and then all the options
     	System.out.println("--------------------------------------------");
 	    System.out.println("You are currently in " + rooms.getString(1));
 	    System.out.println(rooms.getString(2));
@@ -171,6 +161,7 @@ public class trappedOptions extends Adventure {
     	System.out.println("--------------------------------------------");
     	System.out.println("What would you like to do?");
     	userInput = myScan.nextLine();
+    	// first option
     	if (userInput.equals("1"))
 		{
     		System.out.println("--------------------------------------------");
@@ -201,11 +192,13 @@ public class trappedOptions extends Adventure {
 	    		}
 			}
 		}
+    	// second option
 		else if (userInput.equals("2"))
 		{
 			System.out.println("There is nothing inside the file cabinet");
 			officeOptions(C);
 		}
+    	// third option
 		else if (userInput.equals("3"))
 		{
 	    	System.out.println("--------------------------------------------");
@@ -221,9 +214,14 @@ public class trappedOptions extends Adventure {
 				    officeOptions(C);
 				    done = true;
 				}
+				else if (userInput.equals("N")) {
+					officeOptions(C);
+					done = true;
+				}
 			}
 			
 		}
+    	// fourth option
 		else if (userInput.equals("4"))
 		{
 	    	System.out.println("--------------------------------------------");
@@ -237,13 +235,11 @@ public class trappedOptions extends Adventure {
 			}
 		}
 	}
+	// function to make a bedroom
 	public void bedroomOptions(Connection C) throws SQLException {
 		conn = C;
         Statement stmt = conn.createStatement();
         boolean done = false;
-        clues = stmt.executeQuery("SELECT item, content FROM clues");
-        clues.next();
-        clues.next();
         rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
         rooms.next();
         rooms.next();
@@ -259,14 +255,17 @@ public class trappedOptions extends Adventure {
     	System.out.println("--------------------------------------------");
     	System.out.println("What would you like to do?");
     	userInput = myScan.nextLine();
+    	//first option
     	if (userInput.equals("1"))
 		{
+        	System.out.println("--------------------------------------------");
     		System.out.println("The door is locked. It asks for a password. What should I try?");
     		while (!done) {
 				userInput = myScan.nextLine();
 	    		if (userInput.equals("328")) {
 	    			rooms.next();
 	    			rooms.next();
+	    	    	System.out.println("--------------------------------------------");
 	    			System.out.println("The door is unlocked. Do you want to go to the " + rooms.getString(1) + "? (Y/N)");
 	    			userInput = myScan.nextLine();
 	    			if (userInput.equals("Y")) {
@@ -283,50 +282,76 @@ public class trappedOptions extends Adventure {
 	    			bedroomOptions(C);
 	    		}
 	    		else {
+	    	    	System.out.println("--------------------------------------------");
 	    			System.out.println("The password is incorrect. Try again or type QUIT to leave");
 	    		}
 			}
 		}
+    	//second option
 		else if (userInput.equals("2"))
 		{
+	    	System.out.println("--------------------------------------------");
 			System.out.println("It's as comfortable as it looks");
+			bedroomOptions(C);
 		}
+    	//third option
 		else if (userInput.equals("3"))
 		{
-			//3:28AM
-			System.out.println("The clock is stopped, and it reads " + clues.getString(1) + ".");
+			//gets the clue table for the broken clock
+			clues = stmt.executeQuery("SELECT item, content FROM clues");
+	        clues.next();
+	        clues.next();
+	    	System.out.println("--------------------------------------------");
+			System.out.println("The clock is stopped, and it reads " + clues.getString(2) + ".");
+			bedroomOptions(C);
 		}
+    	//fourth option
 		else if (userInput.equals("4"))
 		{
-			System.out.println("");
+	    	System.out.println("--------------------------------------------");
+			System.out.println("Are you sure you would like to go back? (Y/N)");
+			userInput = myScan.nextLine();
+			if (userInput.equals("Y")) {
+				mainOptions(C);
+			}
+			else if (userInput.equals("N")) {
+				bedroomOptions(C);
+			}
 		}
 	}
+	// function to make library
 	public void libraryOptions(Connection C) throws SQLException {
 		conn = C;
         Statement stmt = conn.createStatement();
+        //execute query to get room stuff for library
         rooms = stmt.executeQuery("SELECT roomName, roomDescription FROM rooms");
         rooms.next();
         rooms.next();
         rooms.next();
         rooms.next();
+        //display room information
     	System.out.println("--------------------------------------------");
         System.out.println("You are in " + rooms.getString(1));
         System.out.println(rooms.getString(2));
 		System.out.println("1. Go to Door");
     	System.out.println("2. Check bookshelf");
     	System.out.println("3. Check big desk");
-    	System.out.println("4. Go back to main room");
+    	System.out.println("4. Go back to office rooms");
     	System.out.println("--------------------------------------------");
     	System.out.println("What would you like to do?");
     	userInput = myScan.nextLine();
     	boolean done = false;
+    	//first option
     	if (userInput.equals("1"))
 		{
+        	System.out.println("--------------------------------------------");
     		System.out.println("This door seems to be barricaded, definetely no way through");
     		libraryOptions(C);
 		}
+    	//second option
 		else if (userInput.equals("2"))
 		{
+	    	System.out.println("--------------------------------------------");
 			System.out.println("There is one book on the bookshelf. Open the book? (Y/N)");
 			while (!done) {
 		    	userInput = myScan.nextLine();
@@ -335,7 +360,9 @@ public class trappedOptions extends Adventure {
 		            clues.next();
 		            clues.next();
 		            clues.next();
+			    	System.out.println("--------------------------------------------");
 		    		System.out.println("The book reads: " + clues.getString(2));
+		    		libraryOptions(C);
 		    		done = true;
 		    	}
 		    	if (userInput.equals("N")) {
@@ -346,6 +373,7 @@ public class trappedOptions extends Adventure {
 		}
 		else if (userInput.equals("3"))
 		{
+	    	System.out.println("--------------------------------------------");
 			System.out.println("There is a computer, but it doesn't turn on. Also a lot of books, but they are all empty pages.");
 			libraryOptions(C);
 		}
@@ -355,7 +383,7 @@ public class trappedOptions extends Adventure {
 			System.out.println("Are you sure you would like to go back? (Y/N)");
 	    	userInput = myScan.nextLine();
 			if (userInput.equals("Y")) {
-				mainOptions(conn);
+				officeOptions(conn);
 			}
 			else if (userInput.equals("N")) {
 				libraryOptions(conn);	
@@ -389,7 +417,9 @@ public class trappedOptions extends Adventure {
     		clues.next();
     		clues.next();
     		clues.next();
-    		System.out.println("The list reads: " + clues.getString(2));
+        	System.out.println("--------------------------------------------");
+    		System.out.println("The list reads: ");
+        	System.out.println(clues.getString(2));
 		}
 		else if (userInput.equals("2"))
 		{

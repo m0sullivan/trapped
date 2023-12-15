@@ -32,39 +32,24 @@ public class Adventure {
 	    System.out.println("Press ENTER to begin");
 	    input = reader.readLine();
 	    gameRunning = true;
-	    controls();
+	    instructions();
 	    System.out.println("--------------------------------------------");
 	    System.out.println("You are trapped inside of a house, and you need to find a way out.");
 	    
         Statement stmt = conn.createStatement();
 	    trappedOptions options = new trappedOptions(); 
-	    System.out.println("--------------------------------------------");
-    	System.out.println("What would you like to do?");
 	    while(gameRunning) {
 	    	options.mainOptions(conn);
-	        if (input.equals("QUIT")) {
-	        	System.out.println("--------------------------------------------");
-	        	System.out.println("You Quit! Please type START to start again, or press ENTER to close game.");
-	        	input = reader.readLine();
-	        	if (input.equals("START")) {
-	        		
-	        	}
-	        	System.exit(0);
-	        }
-	        else if (input.equals("CONTROLS")) {
-	        	controls();
-	        }
-	        
 	    }
 	    
 
     }
-    public static void controls() {
+    public static void instructions() {
     	System.out.println("--------------------------------------------");
-	    System.out.println("CONTROLS:");
-	    System.out.println("Type CONTROLS anytime to show controls");
-	    System.out.println("Type QUIT to Quit anytime");
+	    System.out.println("INSTRUCTIONS:");
+	    System.out.println("Find different objects and letters in different rooms to decode them for passwords, which you can use to open different doors.");
 	    System.out.println("All input should be UPPERCASE");
-    }
+	    System.out.println("Re-run game if something breaks, all passwords are the same everytime.");
+	    }
         
 }
