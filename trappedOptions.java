@@ -48,6 +48,7 @@ public class trappedOptions extends Adventure {
     	System.out.println("What would you like to do?");
     	userInput = myScan.nextLine();
     	gameRunning();
+    	boolean done = false;
     	if (userInput.equals("1"))
 		{
         	System.out.println("--------------------------------------------");
@@ -77,7 +78,30 @@ public class trappedOptions extends Adventure {
 			System.out.println("There is nothing inside the closet");
 		}
 		else if (userInput.equals("5")) {
+			System.out.println("--------------------------------------------");
 			System.out.println("This door is locked");
+			System.out.println("I can input a password... might find it later... should I input it right now? (Y/N)");
+			userInput = myScan.nextLine();
+			if (userInput.equals("Y")) {
+    	    	System.out.println("--------------------------------------------");
+				System.out.println("Input the password:");
+				userInput = myScan.nextLine();
+				if (userInput.equals("JULY")) {
+	    	    	System.out.println("--------------------------------------------");
+	    	    	rooms.next();
+	    	    	rooms.next();
+	    	    	rooms.next();
+	    	    	rooms.next();
+	    	    	rooms.next();
+	    			System.out.println("The door in unlocked. Do you want to go to the " + rooms.getString(1) + "? (Y/N)");
+	    			userInput = myScan.nextLine();
+    		}
+    		else if (userInput.equals("N")) {
+    			officeOptions(conn);
+    		}
+				done = true;
+			}
+			
 		}
 	}
 	
