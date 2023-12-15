@@ -95,9 +95,10 @@ public class trappedOptions extends Adventure {
 	    	    	rooms.next();
 	    			System.out.println("The door in unlocked. Do you want to go to the " + rooms.getString(1) + "? (Y/N)");
 	    			userInput = myScan.nextLine();
+	    			if (userInput.equals(Y));
     		}
     		else if (userInput.equals("N")) {
-    			officeOptions(conn);
+    			mainOptions(C);
     		}
 				done = true;
 			}
